@@ -6,10 +6,11 @@ const connectDB = require('./config/database');
 const authRoutes = require('./routes/auth');
 const messageRoutes = require('./routes/messages');
 const setupWebSocket = require('./websocket/chatHandler');
+const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
-
+app.use(cors());
 connectDB();
 
 app.use(express.json());
